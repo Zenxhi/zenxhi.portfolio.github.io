@@ -1,0 +1,5 @@
+# Ignore Windows and Linux system files
+Thumbs.db
+*.local
+.vscode/
+.directory
