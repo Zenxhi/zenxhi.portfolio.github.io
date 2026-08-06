@@ -1,12 +1,4 @@
-:root {
-  --accent: #ff0000;
-  --text: #ffffff;
-  --text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
-  --card-bg: rgba(65, 65, 65, 0.5);
-}
-
 * {
-  /* Resets the default styles for all elements because browsers have default spacing */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,7 +6,6 @@
 
 html,
 body {
-  /* Sets the font and height for the entire website */
   min-height: 100%;
   font-family: "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
   overflow: hidden;
@@ -48,6 +39,8 @@ body {
   pointer-events: none;
 }
 
+/* nav */
+
 nav {
   position: fixed;
   z-index: 3;
@@ -65,27 +58,29 @@ nav {
   top: 0;
   width: 5px;
   height: 20px;
-  background: var(--accent);
+  background: #ff0000;
   border-radius: 39px;
   transition: top 0.35s cubic-bezier(0.65, 0, 0.35, 1), height 0.35s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 nav a {
   position: relative;
-  color: var(--text);
+  color: #ffffff;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
-  text-shadow: var(--text-shadow);
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
   transition: color 0.35s ease, font-size 0.35s ease;
 }
 
 nav a.active {
-  color: var(--accent);
+  color: #ff0000;
   font-weight: 600;
   font-size: 1.6rem;
 }
+
+/* page layout */
 
 .content {
   position: relative;
@@ -108,6 +103,35 @@ nav a.active {
 .page.active {
   display: block;
 }
+
+.page h1,
+.page h2 {
+  margin-bottom: 0.6rem;
+  font-size: 2.7rem;
+  font-weight: 600;
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
+}
+
+.page h3 {
+  margin-bottom: 0.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
+}
+
+.page p,
+.page li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
+}
+
+.page ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* home page */
 
 #home h1 {
   font-size: 4rem;
@@ -133,20 +157,14 @@ nav a.active {
   color: #ffffff;
 }
 
-.eyebrow {
-  margin: 0 0 1rem;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-}
-
 .home-description {
   max-width: 620px;
   font-size: 1.35rem;
   margin-top: 1rem;
   color: #ffffff;
 }
+
+/* about page */
 
 #about .about-panel {
   position: relative;
@@ -187,6 +205,8 @@ nav a.active {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* skills / projects / contact cards */
+
 #skills .skills-card,
 #projects .projects-card,
 #contact .contact-panel {
@@ -197,13 +217,19 @@ nav a.active {
   margin: 0 auto;
 }
 
-#contact .contact-panel {
-  min-height: calc(100vh - 90px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 1.5rem;
+.glass-card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(65, 65, 65, 0.5);
+  box-shadow: 6px 6px 8.6px #000000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 30px;
+  padding: 2.5rem 2.75rem;
+}
+
+.glass-card h2 {
+  color: #ffffff;
 }
 
 #projects .projects-card {
@@ -213,6 +239,61 @@ nav a.active {
   justify-content: center;
   margin: 0 auto;
 }
+
+/* skills page */
+
+.skill-bars {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.skill-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.skill-bar-row:last-child {
+  margin-bottom: 0;
+}
+
+.skill-name {
+  flex: 0 0 110px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
+}
+
+.skill-bar {
+  flex: 1 1 auto;
+  height: 22px;
+  background: #000000;
+  border-radius: 39px;
+  overflow: hidden;
+  display: block;
+}
+
+.skill-fill {
+  display: block;
+  height: 100%;
+  background: #ff0000;
+  border-radius: 999px;
+}
+
+.skill-percent {
+  flex: 0 0 auto;
+  min-width: 3ch;
+  text-align: right;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 2px 2.5px 6.2px rgba(0, 0, 0, 0.58);
+}
+
+/* education page */
 
 .education-layout {
   display: flex;
@@ -239,44 +320,15 @@ nav a.active {
   display: flex;
   align-items: center;
   gap: 2rem;
-  padding: 0;
-}
-
-.school-text-content {
-  flex: 1;
-  color: #ffffff;
-}
-
-.school-text-content h3 {
-  color: #ffffff;
-}
-
-.school-text-content p {
-  color: #ffffff;
-}
-
-.school-card-large {
-  min-height: auto;
-}
-
-.school-card-small {
-  min-height: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 1.5rem;
 }
 
 .school-card-reverse {
-  display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-}
-
-.school-card-top {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 0;
-  flex: 1;
-  border-left: 3px solid rgba(255, 255, 255, 0.4);
-  padding-left: 2rem;
 }
 
 .school-logo {
@@ -290,11 +342,29 @@ nav a.active {
   font-size: 0.85rem;
   text-transform: uppercase;
   background: #ffffff;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.school-text-content {
+  flex: 1;
+  color: #ffffff;
+}
+
+.school-text-content h3 {
+  color: #ffffff;
+}
+
+.school-text-content p:last-child {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .school-card h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #ffffff;
 }
 
@@ -304,17 +374,22 @@ nav a.active {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.school-text-content p:last-child {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
+/* contact page */
 
 .contact-panel {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 30px;
   padding: 2rem;
+}
+
+#contact .contact-panel {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 1.5rem;
 }
 
 .contact-body {
@@ -381,211 +456,13 @@ nav a.active {
   padding: 0.95rem 2rem;
   border-radius: 999px;
   border: none;
-  background: var(--accent);
+  background: #ff0000;
   color: #0f0f0f;
   font-weight: 700;
   cursor: pointer;
 }
 
-.page h1,
-.page h2 {
-  margin-bottom: 0.6rem;
-  font-size: 2.7rem;
-  font-weight: 600;
-  text-shadow: var(--text-shadow);
-}
-
-.page h3 {
-  margin-bottom: 0.6rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: var(--text-shadow);
-}
-
-.page p,
-.page li {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-shadow: var(--text-shadow);
-}
-
-.glass-card {
-  width: 100%;
-  max-width: 900px;
-  background: var(--card-bg);
-  box-shadow: 6px 6px 8.6px #000000;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 30px;
-  padding: 2.5rem 2.75rem;
-}
-
-.page h1,
-.page h2 {
-  margin-bottom: 0.6rem;
-  font-size: 2.7rem;
-  font-weight: 600;
-  text-shadow: var(--text-shadow);
-}
-
-.page h3 {
-  margin-bottom: 0.6rem;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: var(--text-shadow);
-}
-
-.page p,
-.page li {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-shadow: var(--text-shadow);
-}
-
-.page ul {
-  list-style: none;
-  padding: 0;
-}
-
-.glass-card {
-  width: 100%;
-  max-width: 900px;
-  background: var(--card-bg);
-  box-shadow: 6px 6px 8.6px #000000;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 30px;
-  padding: 2.5rem 2.75rem;
-}
-
-.glass-card h2 {
-  color: #ffffff;
-}
-
-.school-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 28px;
-  padding: 1.5rem;
-}
-
-.school-card-top {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.school-logo {
-  width: 72px;
-  height: 72px;
-  border-radius: 22px;
-  color: #0f0f0f;
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  background: #ffffff;
-  object-fit: cover;
-  object-position: center;
-  flex-shrink: 0;
-}
-
-.placeholder-logo {
-  opacity: 0.7;
-}
-
-.school-card h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-.school-meta {
-  margin: 0.25rem 0 0;
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.contact-card {
-  display: block;
-  padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 28px;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.contact-card:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
-.skill-bars {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-}
-
-.skill-bar-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.1rem;
-}
-
-.skill-bar-row:last-child {
-  margin-bottom: 0;
-}
-
-.skill-name {
-  flex: 0 0 110px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: var(--text-shadow);
-}
-
-.skill-bar {
-  flex: 1 1 auto;
-  height: 22px;
-  background: #000000;
-  border-radius: 39px;
-  overflow: hidden;
-  display: block;
-}
-
-.skill-fill {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-  border-radius: 999px;
-}
-
-.skill-percent {
-  flex: 0 0 auto;
-  min-width: 3ch;
-  text-align: right;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #ffffff;
-  text-shadow: var(--text-shadow);
-}
+/* small screens */
 
 @media (max-width: 768px) {
   .glass-card {
@@ -600,9 +477,7 @@ nav a.active {
   .skill-percent {
     font-size: 0.9rem;
   }
-}
 
-@media (max-width: 768px) {
   nav {
     left: 1rem;
     gap: 0.5rem;
